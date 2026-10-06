@@ -3,6 +3,7 @@ from livros.biblioteca import Biblioteca
 from usuarios.usuario import Usuario
 from usuarios.aluno import Aluno
 from usuarios.professor import Professor
+from livros.interface import iniciar_aplicacao
 
 
 geovanna = Aluno('Geovanna Nascimento', 1234123)
@@ -15,20 +16,4 @@ harryPotter = Livro('Harry Potter e a P.F', 'J.K. Rowling', 1997)
 oHobbit = Livro('O Hobbit', 'J.R.R. Tolkien', 1937)
 cemAnosDeSolidao = Livro('Cem Anos de Solidão', 'Gabriel García Márquez', 1967)
 
-Biblioteca.adicionar_livro(diarioDeUmBanana)
-Biblioteca.adicionar_livro(oPequenoPrincipe)
-Biblioteca.adicionar_livro(domCasmurro)
-Biblioteca.adicionar_livro(oSenhorDosAneis)
-Biblioteca.adicionar_livro(harryPotter)
-Biblioteca.adicionar_livro(oHobbit)
-Biblioteca.adicionar_livro(cemAnosDeSolidao)
-
-Livro.emprestar_livro(oPequenoPrincipe, geraldo)
-Livro.emprestar_livro(domCasmurro, geraldo)
-Livro.emprestar_livro(oSenhorDosAneis, geraldo)
-Livro.emprestar_livro(harryPotter, geraldo)
-Livro.emprestar_livro(oHobbit, geraldo)
-Livro.emprestar_livro(cemAnosDeSolidao, geraldo)
-
-
-Biblioteca.exibir_livros()
+iniciar_aplicacao()
