@@ -4,23 +4,38 @@ class Biblioteca:
 
     @classmethod
     def exibir_livros(cls):
-        print(f'{'Título:'.ljust(25)} | {'Autor:'.ljust(25)} | {'Ano de Publicação:'.ljust(25)} | {'Status:'}')
-        for livro in cls.biblioteca : 
-            print(f'{livro._nome.ljust(25)} | {livro._autor.ljust(25)} | {str(livro._ano_publicacao).ljust(25)} | {livro.disponibilidade}')
-
-    def adicionar_livro(self):
-        if self not in Biblioteca.biblioteca :
-            Biblioteca.biblioteca.append(self)
-            print(f'O livro {self._nome} foi adicionado com sucesso')
+        if Biblioteca.biblioteca:
+            print(f'{'Título:'.ljust(25)} | {'Autor:'.ljust(25)} | {'Ano de Publicação:'.ljust(25)} | {'Status:'}')
+            for livro in cls.biblioteca : 
+                print(f'{livro._nome.ljust(25)} | {livro._autor.ljust(25)} | {str(livro._ano_publicacao).ljust(25)} | {livro.disponibilidade}')
         else:
-            print(f'O livro {self._nome} já existe.')
+            print('A biblioteca está vazia.')
 
-    def remover_livro(self):
-        if self in Biblioteca.biblioteca :
-            Biblioteca.biblioteca.remove(self)
-            print(f'O livro {self._nome} foi removido com sucesso')
+    def adicionar_livro(nome, autor, ano):
+        from livros.livro import Livro
+
+        livro_existe = any(livro._nome.lower() == nome.lower() for livro in Biblioteca.biblioteca)
+
+        if not livro_existe :
+            novo_livro = Livro(nome,  autor, ano)
+            Biblioteca.biblioteca.append(novo_livro)
+            print(f'O livro {novo_livro._nome} foi adicionado com sucesso.')
         else:
-            print(f'O livro {self._nome} não foi encontrado.')
+            print(f'O livro {novo_livro._nome} já existe.')
+
+    def remover_livro(nome):
+
+        livro_encontrado = None
+        for livro in Biblioteca.biblioteca:
+            if livro._nome.lower() == nome.lower():
+                livro_encontrado = livro
+                break
+
+        if livro_encontrado:
+            Biblioteca.biblioteca.remove(livro_encontrado)
+            print(f'O livro {nome} foi removido com sucesso.')
+        else:
+            print(f'O livro {nome} não foi encontrado.')
 
     @staticmethod
     def verificar_disponibilidade_ano(ano):
@@ -34,7 +49,7 @@ class Biblioteca:
                     livros_disponiveis_ano.append(livro)
 
             if livros_disponiveis_ano:
-                print('Os livros encontrados foram:')
+                print('Os livros encontrados foram:\n')
                 for livro in livros_disponiveis_ano:
                     print(livro)
             else:
@@ -54,13 +69,13 @@ class Biblioteca:
                 if livro._nome == nome and livro.disponivel == True:
                     livros_disponiveis_nome.append(livro)
             if livros_disponiveis_nome:
-                print('O livro encontrado foi:')
+                print('O livro encontrado foi:\n.')
                 for livro in livros_disponiveis_nome:
                     print(livro)
             else:
-                print('Não foram encontrados livros com esse nome')
+                print('Não foram encontrados livros com esse nome.')
         except:
-            print('Nome inválido')
+            print('Nome inválido.')
 
     @staticmethod
     def verificar_disponibilidade_autor(autor):
@@ -73,10 +88,10 @@ class Biblioteca:
                 if livro._autor == autor and livro.disponivel == True:
                     livros_disponiveis_autor.append(livro)
             if livros_disponiveis_autor:
-                print('O livro encontrado foi:')
+                print('O livro encontrado foi:\n')
                 for livro in livros_disponiveis_autor:
                     print(livro)
             else:
-                print('Não foram encontrados livros deste autor')
+                print('Não foram encontrados livros deste autor.')
         except:
-            print('Autor inválido')
+            print('Autor inválido.')
