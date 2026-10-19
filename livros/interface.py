@@ -14,9 +14,10 @@ def iniciar_aplicacao():
     def exibir_menu_principal():
             limpar()
             print('======BIBLIOTECA======\n')
-            print('1. Biblioteca')
-            print('2. Usuários')
-            print('3. Sair\n')
+            print('1. Gerenciamento de Livros')
+            print('2. Gerenciamento de Usuários')
+            print('3. Emprétimos & Devoluções')
+            print('4. Sair\n')
             escolha_menu_principal()
 
     def escolha_menu_principal():
@@ -24,18 +25,23 @@ def iniciar_aplicacao():
             resposta = int(input('Escolha uma sessão: '))
 
             if resposta == 1:
-                    limpar()
-                    interface_biblioteca()
+                limpar()
+                interface_biblioteca()
             elif resposta == 2:
-                    limpar()
-                    interface_usuarios()
+                limpar()
+                interface_usuarios()
             elif resposta == 3:
-                   limpar()
-                   print('Aplicação encerrada...')
+                limpar()
+                interface_emprestimo()
+            elif resposta == 4:
+                limpar()
+                print('Aplicação encerrada...')
             else:
-                    print('Opção inexistente.')
+                print('Opção inexistente.')
+                digite_tecla()
         except:
-                print('Opção Inválida')
+            print('Opção Inválida')
+            digite_tecla()
 
     def interface_biblioteca():
             limpar()
@@ -126,14 +132,80 @@ def iniciar_aplicacao():
                 digite_tecla()
  
     def interface_usuarios():
-            print('======USUÁRIOS======\n')
-            print('1. Cadastrar Usuário')
-            print('2. Cadastrar Aluno')
-            print('3. Cadastrar Professor')
-            print('4. Remover Usuário')
-            print('5. Voltar')
+        limpar()
+        print('======USUÁRIOS======\n')
+        print('1. Cadastro de Usuário')
+        print('2. Remover Usuário')
+        print('3. Exibir Empréstimo')
+        print('4. Voltar')
+        escolha_menu_usuarios()
 
+    def interface_cadastro_usuarios():
+        limpar()
+        print('======CADASTRO======\n')
+        print('1. Cadastrar Usuário')
+        print('2. Cadastrar Aluno')
+        print('3. Cadastrar Professor')
+        print('4. Voltar')
+        escolha_cadastro_usuarios()
+
+    def escolha_menu_usuarios():
+        from usuarios.usuario import Usuario
+        try:
+            resposta = int(input('Escolha uma opção: '))
+
+            if resposta == 1:
+                interface_cadastro_usuarios()
+            elif resposta == 2:
+                id = int(input('Insira o ID do usuário que deseja remover: '))                
+                Usuario.remover_usuario(id)
+                digite_tecla()
+            elif resposta == 3:
+                Usuario.exibir_emprestados(id) 
+                digite_tecla()
+            elif resposta == 4:
+                exibir_menu_principal() 
+            else:
+                print('Opção Inexistente.')
+                digite_tecla()
+        except:
+            print('Opção Inválida.')
+            digite_tecla()
+
+    def escolha_cadastro_usuarios():
+        from usuarios.aluno import Aluno
+        from usuarios.professor import Professor
+
+        try:
+            resposta = int(input('Escolha uma opção: '))
+        
+            if resposta == 1:
+                nome = str(input('Insira o nome do usuário: '))
+                id = int(input('Insira o ID do usuário: '))
+                maximo_emprestimo = int(input('Insira o limite de empréstimos o usuário: '))
+                Usuario.cadastrar_usuario(nome, id, maximo_emprestimo)
+                digite_tecla()
+            elif resposta == 2:
+                nome = str(input('Insira o nome do Aluno: '))
+                id = int(input('Insira o ID do Aluno: '))
+                Aluno.cadastrar_aluno(nome, id)
+                digite_tecla()
+            elif resposta == 3:
+                nome = str(input('Insira o nome do Professor: '))
+                id = int(input('Insira o ID do Professor: '))
+                Professor.cadastrar_professor(nome, id)
+                digite_tecla()
+            elif resposta == 4:
+                exibir_menu_principal() 
+            else:
+                print('Opção Inexistente.')
+                digite_tecla()
+
+        except:
+            print('Opção Inválida.')
+            digite_tecla()
+
+    def interface_emprestimo():
+        pass
 
     exibir_menu_principal()
-
-        

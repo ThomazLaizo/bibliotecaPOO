@@ -15,13 +15,13 @@ class Biblioteca:
         from livros.livro import Livro
 
         livro_existe = any(livro._nome.lower() == nome.lower() for livro in Biblioteca.biblioteca)
+        novo_livro = Livro(nome,  autor, ano)
 
         if not livro_existe :
-            novo_livro = Livro(nome,  autor, ano)
             Biblioteca.biblioteca.append(novo_livro)
-            print(f'O livro {novo_livro._nome} foi adicionado com sucesso.')
+            print(f'O livro {nome} foi adicionado com sucesso.')
         else:
-            print(f'O livro {novo_livro._nome} já existe.')
+            print(f'O livro {nome} já existe.')
 
     def remover_livro(nome):
 
@@ -69,7 +69,7 @@ class Biblioteca:
                 if livro._nome == nome and livro.disponivel == True:
                     livros_disponiveis_nome.append(livro)
             if livros_disponiveis_nome:
-                print('O livro encontrado foi:\n.')
+                print('O livro encontrado foi:\n')
                 for livro in livros_disponiveis_nome:
                     print(livro)
             else:
