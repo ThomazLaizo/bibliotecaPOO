@@ -161,6 +161,7 @@ def iniciar_aplicacao():
                 Usuario.remover_usuario(id)
                 digite_tecla()
             elif resposta == 3:
+                id = int(input('Insira o ID do usuário que deseja exibir: '))                
                 Usuario.exibir_emprestados(id) 
                 digite_tecla()
             elif resposta == 4:
@@ -206,6 +207,54 @@ def iniciar_aplicacao():
             digite_tecla()
 
     def interface_emprestimo():
-        pass
+        print('1. Emprestar Livro')
+        print('2. Devolver Livro')
+        print('3. Voltar')
+        escolha_emprestimo()
 
+    def escolha_emprestimo():
+        from livros.livro import Livro
+        try:
+            resposta = int(input('Escolha uma opção: '))
+
+            if resposta == 1:
+                nome = str(input('Insira o nome do livro que deseja emprestar: '))
+                id_usuario = int(input('Insira o ID do usuário que deseja pegar emprestado: '))
+                usuario_encontrado = None
+                for u in Usuario.usuarios:
+                    if u._id == id_usuario:
+                        usuario_encontrado = u
+                        break
+                
+                if usuario_encontrado:
+                    Livro.emprestar_livro(nome, usuario_encontrado)
+                else:
+                    print(f'O usuário de ID {id_usuario} não foi encontrado.')
+                digite_tecla()
+
+            elif resposta == 2:
+                nome = str(input('Insira o nome do livro que deseja devolver: '))
+                id_usuario = int(input('Insira o ID do usuário que deseja devolvê-lo: '))
+                usuario_encontrado = None
+                for u in Usuario.usuarios:
+                    if u._id == id_usuario:
+                        usuario_encontrado = u
+                        break                                                                                                                      
+                if usuario_encontrado:
+                    Livro.devolver_livro(nome, usuario_encontrado)
+                else:
+                    print(f'O usuário de ID {id_usuario} não foi encontrado.')
+                digite_tecla()
+            elif resposta == 3:
+                exibir_menu_principal()
+
+            else:                          
+                print('Opção Inexistente.')
+                digite_tecla()
+
+        except:                     
+            print('Opção Inválida.')
+            digite_tecla()
+
+            
     exibir_menu_principal()

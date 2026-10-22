@@ -18,14 +18,14 @@ class Usuario:
                 break
         
         if usuario_encontrado:
-            if usuario.lista_emprestados:
+            if usuario_encontrado.lista_emprestados:
                 print(f'Lista de Livros emprestados para {usuario._nome}:')
-                for livro in usuario.lista_emprestados:
+                for livro in usuario_encontrado.lista_emprestados:
                     print(livro)
             else:
                 print('Este usuário não pegou nenhum livro emprestado.')
         else:
-            print(f'O usuário {usuario._nome} não existe')
+            print(f'O usuário de ID {id} não existe')
 
     def cadastrar_usuario(nome, id, maximo_emprestimo):
         usuario = Usuario(nome, id, maximo_emprestimo)

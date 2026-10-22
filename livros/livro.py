@@ -11,29 +11,44 @@ class Livro:
     def __str__(self):
         return (f'Título: {self._nome}, Autor: {self._autor}, Ano de Publicação: {self._ano_publicacao}')
 
-    def emprestar_livro(self, usuario):
-        tipo_usuario = usuario.__class__.__name__
-        if usuario._id in Usuario.usuarios:
-            if self in Biblioteca.biblioteca and self.disponivel == True:
-                if len(usuario.lista_emprestados) < int(usuario.maximo_emprestimo):
-                    usuario.lista_emprestados.append(self._nome)
-                    self.disponivel = not self.disponivel
-                else: 
-                    print(f'O {tipo_usuario} {usuario._nome} atingiu o limite de livros emprestados e o {self._nome} não pôde ser emprestado.')
-            else:
-                print(f'O livro {self._nome} não está disponível para ser emprestado.')
-        else:
-            print(f'O usuário de ID: {usuario._id} não foi encontrado')
+    def emprestar_livro(nome, usuario):
 
-    def devolver_livro(self, usuario):
-        if self in Biblioteca.biblioteca:
-            if self.disponivel == False:
-                usuario.lista_emprestados.remove(self._nome)
-                self.disponivel = not self.disponivel
+        tipo_usuario = usuario.__class__.__name__
+
+        livro_encontrado = None                    
+        for livro in Biblioteca.biblioteca:        
+            if livro._nome.lower() == nome.lower():
+                livro_encontrado = livro           
+                break                              
+        if livro_encontrado:                       
+            if livro_encontrado.disponivel == True:
+                if len(usuario.lista_emprestados) < int(usuario.maximo_emprestimo):
+                    usuario.lista_emprestados.append(livro_encontrado._nome)
+                    livro_encontrado.disponivel = not livro_encontrado.disponivel
+                    print(f'O livro {nome} foi emprestado para o(a) {tipo_usuario}(a) {usuario._nome} com sucesso!')
+                else: 
+                    print(f'O(A) {tipo_usuario}(a) {usuario._nome} atingiu o limite de livros emprestados e o {livro_encontrado._nome} não pôde ser emprestado.')
             else:
-                print(f'O livro {self._nome} já foi devolvido.')
+                print(f'O livro {livro_encontrado._nome} não está disponível para ser emprestado.')
+
+    def devolver_livro(nome, usuario):
+
+        tipo_usuario = usuario.__class__.__name__
+
+        livro_encontrado = None                    
+        for livro in Biblioteca.biblioteca:        
+            if livro._nome.lower() == nome.lower():
+                livro_encontrado = livro           
+                break                              
+        if livro_encontrado:
+            if livro_encontrado.disponivel == False:
+                usuario.lista_emprestados.remove(livro_encontrado._nome)
+                livro_encontrado.disponivel = not livro_encontrado.disponivel
+                print(f'O livro {nome} foi devolvido pelo(a) {tipo_usuario}(a) {usuario._nome} com sucesso!')
+            else:
+                print(f'O livro {livro_encontrado._nome} já foi devolvido.')
         else:
-            print(f'O livro {self._nome} não foi localizado na biblioteca.')
+            print(f'O livro {nome} não foi localizado na biblioteca.')
 
     @property
     def disponibilidade(self):
