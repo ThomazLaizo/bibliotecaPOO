@@ -47,7 +47,7 @@ class Livro:
                     livro_encontrado.disponivel = not livro_encontrado.disponivel
                     print(f'O livro {nome} foi devolvido pelo(a) {tipo_usuario}(a) {usuario._nome} com sucesso!')
                 else:
-                    print(f'O livro {livro_encontrado._nome} não foi emprestado por {nome}')
+                    print(f'O livro {livro_encontrado._nome} não foi emprestado por {usuario._nome}')
             else:
                 print(f'O livro {livro_encontrado._nome} já foi devolvido.')
         else:
