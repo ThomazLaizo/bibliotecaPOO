@@ -42,9 +42,12 @@ class Livro:
                 break                              
         if livro_encontrado:
             if livro_encontrado.disponivel == False:
-                usuario.lista_emprestados.remove(livro_encontrado._nome)
-                livro_encontrado.disponivel = not livro_encontrado.disponivel
-                print(f'O livro {nome} foi devolvido pelo(a) {tipo_usuario}(a) {usuario._nome} com sucesso!')
+                if livro_encontrado._nome in usuario.lista_emprestados:
+                    usuario.lista_emprestados.remove(livro_encontrado._nome)
+                    livro_encontrado.disponivel = not livro_encontrado.disponivel
+                    print(f'O livro {nome} foi devolvido pelo(a) {tipo_usuario}(a) {usuario._nome} com sucesso!')
+                else:
+                    print(f'O livro {livro_encontrado._nome} não foi emprestado por {nome}')
             else:
                 print(f'O livro {livro_encontrado._nome} já foi devolvido.')
         else:
