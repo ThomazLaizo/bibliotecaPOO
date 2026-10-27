@@ -38,6 +38,9 @@ class Usuario:
             print(f'O usuário de ID: {id} já existe')
 
     def remover_usuario(id):
+        from livros.livro import Livro
+        for livro in usuario_encontrado.lista_emprestimo:
+            Livro.devolver_livro(livro)
         usuario_encontrado = None
         for usuario in Usuario.usuarios:
             if usuario._id == id:

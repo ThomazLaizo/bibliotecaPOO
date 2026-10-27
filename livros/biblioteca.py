@@ -66,7 +66,7 @@ class Biblioteca:
             livros_disponiveis_nome = []
 
             for livro in Biblioteca.biblioteca:
-                if livro._nome == nome and livro.disponivel == True:
+                if livro._nome.lower() == nome.lower() and livro.disponivel == True:
                     livros_disponiveis_nome.append(livro)
             if livros_disponiveis_nome:
                 print('O livro encontrado foi:\n')
@@ -85,7 +85,7 @@ class Biblioteca:
             livros_disponiveis_autor = []
 
             for livro in Biblioteca.biblioteca:
-                if livro._autor == autor and livro.disponivel == True:
+                if livro._autor.lower() == autor.lower() and livro.disponivel == True:
                     livros_disponiveis_autor.append(livro)
             if livros_disponiveis_autor:
                 print('O livro encontrado foi:\n')
