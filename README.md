@@ -104,4 +104,4 @@ Distribuído sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais
  
 ## 👤 Autor
  
-Feito por **[Thomaz Silva Laizo](https://github.com/ThomazLaizo)**.
+Feito por **[Thomaz Laizo](https://github.com/ThomazLaizo)**.
