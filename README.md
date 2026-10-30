@@ -6,10 +6,6 @@ Sistema de gerenciamento de biblioteca para terminal, desenvolvido em Python com
 ![Python](https://img.shields.io/badge/Python-3.12%2B-3776AB?logo=python&logoColor=white)
 ![POO](https://img.shields.io/badge/paradigma-POO-blueviolet)
 ![Terminal](https://img.shields.io/badge/interface-terminal-black?logo=windowsterminal&logoColor=white)
-![Plataforma](https://img.shields.io/badge/plataforma-Windows-0078D6?logo=windows&logoColor=white)
-![Licença](https://img.shields.io/badge/licen%C3%A7a-MIT-green)
-![Último commit](https://img.shields.io/github/last-commit/ThomazLaizo/bibliotecaPOO)
-![Tamanho do repositório](https://img.shields.io/github/repo-size/ThomazLaizo/bibliotecaPOO)
 ![Linguagem principal](https://img.shields.io/github/languages/top/ThomazLaizo/bibliotecaPOO)
  
 > 🚧 **Projeto em desenvolvimento.** Veja o [roadmap](#️-roadmap) para o que está planejado.
