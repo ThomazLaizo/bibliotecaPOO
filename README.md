@@ -2,7 +2,17 @@
  
 Sistema de gerenciamento de biblioteca para terminal, desenvolvido em Python com foco em **Programação Orientada a Objetos**. Permite cadastrar livros e usuários, controlar empréstimos e devoluções e consultar a disponibilidade do acervo.
  
-> 🚧 **Projeto em desenvolvimento.** Veja o [roadmap](#-roadmap) para o que está planejado.
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
+![Python](https://img.shields.io/badge/Python-3.12%2B-3776AB?logo=python&logoColor=white)
+![POO](https://img.shields.io/badge/paradigma-POO-blueviolet)
+![Terminal](https://img.shields.io/badge/interface-terminal-black?logo=windowsterminal&logoColor=white)
+![Plataforma](https://img.shields.io/badge/plataforma-Windows-0078D6?logo=windows&logoColor=white)
+![Licença](https://img.shields.io/badge/licen%C3%A7a-MIT-green)
+![Último commit](https://img.shields.io/github/last-commit/ThomazLaizo/bibliotecaPOO)
+![Tamanho do repositório](https://img.shields.io/github/repo-size/ThomazLaizo/bibliotecaPOO)
+![Linguagem principal](https://img.shields.io/github/languages/top/ThomazLaizo/bibliotecaPOO)
+ 
+> 🚧 **Projeto em desenvolvimento.** Veja o [roadmap](#️-roadmap) para o que está planejado.
  
 ## ✨ Funcionalidades
  
@@ -48,13 +58,13 @@ bibliotecaPOO/
 ## ⚙️ Requisitos
  
 - **Python 3.12 ou superior** (o código usa aspas aninhadas em f-strings, recurso das versões mais recentes)
-- **Windows** (a limpeza de tela usa o comando `cls`; veja o [roadmap](#-roadmap))
+- **Windows** (a limpeza de tela usa o comando `cls`; veja o [roadmap](#️-roadmap))
 - Nenhuma biblioteca externa é necessária
 ## ▶️ Como executar
  
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/SEU-USUARIO/bibliotecaPOO.git
+git clone https://github.com/ThomazLaizo/bibliotecaPOO.git
  
 # 2. Entre na pasta do projeto
 cd bibliotecaPOO
@@ -98,4 +108,4 @@ Distribuído sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais
  
 ## 👤 Autor
  
-**Thomaz Silva Laizo**
+Feito por **[Thomaz Silva Laizo](https://github.com/ThomazLaizo)**.
